@@ -1,0 +1,33 @@
+10:14:17 **** Incremental Build of configuration Debug for project 6.PWM ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:114:19: warning: pointer targets in passing argument 3 of 'CLCD_Puts' differ in signedness [-Wpointer-sign]
+  114 |   CLCD_Puts(0, 0, "hello world");
+      |                   ^~~~~~~~~~~~~
+      |                   |
+      |                   char *
+In file included from ../Core/Src/main.c:27:
+../Core/Inc/CLCD.h:57:65: note: expected 'unsigned char *' but argument is of type 'char *'
+   57 | void CLCD_Puts(unsigned char x, unsigned char y, unsigned char *str);
+      |                                                  ~~~~~~~~~~~~~~~^~~
+../Core/Src/main.c:130:11: warning: unused variable 'str' [-Wunused-variable]
+  130 |   uint8_t str[20];
+      |           ^~~
+../Core/Src/main.c:129:11: warning: unused variable 'a' [-Wunused-variable]
+  129 |   uint8_t a = 0;
+      |           ^
+arm-none-eabi-gcc -o "6.PWM.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\STM32F4\6.PWM\6.PWM\STM32F407VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="6.PWM.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 6.PWM.elf
+ 
+arm-none-eabi-size  6.PWM.elf 
+arm-none-eabi-objdump -h -S 6.PWM.elf  > "6.PWM.list"
+   text	   data	    bss	    dec	    hex	filename
+  35044	    476	   2196	  37716	   9354	6.PWM.elf
+Finished building: default.size.stdout
+ 
+Finished building: 6.PWM.list
+ 
+
+10:14:18 Build Finished. 0 errors, 3 warnings. (took 1s.349ms)
+
