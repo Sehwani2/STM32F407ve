@@ -92,6 +92,11 @@ int main(void)
   MX_GPIO_Init();
   MX_USART3_UART_Init();
   MX_TIM7_Init();
+  MX_TIM3_Init();
+  MX_TIM4_Init();
+  MX_TIM10_Init();
+  MX_TIM2_Init();
+  MX_TIM5_Init();
 
   /* Initialize interrupts */
   MX_NVIC_Init();
@@ -112,14 +117,41 @@ int main(void)
   CLCD_Puts(0, 0, "hello world");
 
   _7SEG_GPIO_Init();
+
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+
+  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
+  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
+
+  HAL_TIM_PWM_Start(&htim10, TIM_CHANNEL_1);
+//  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+
+
+  HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_4);
+
+  TIM10->CCR1 = 1500;
+  TIM2->ARR = 500 -1;
+  TIM ->CCR1 = 250;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   uint8_t a = 0;
   uint8_t str[20];
+  uint16_t ccr = 100;
   while (1)
   {
+	  //__HAL_TIM_SET_COMPARE(&htim4,TIM_CHANNEL_1,ccr);
+//	  TIM4->CCR1 = ccr;
+//	  ccr += 1000;
+//	  if(ccr > TIM4->ARR)
+//	  {
+//		  ccr = 0;
+//	  }
 
     /* USER CODE END WHILE */
 
@@ -210,7 +242,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   if(htim->Instance == TIM7)
   {
 
-	  cnt++;
   }
 }
 
@@ -218,19 +249,19 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   if(GPIO_Pin == GPIO_PIN_3)
   {
-	  HAL_GPIO_TogglePin(GPIOD, GPIO_Pin_12);
+	  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
   }
   if(GPIO_Pin == GPIO_PIN_15)
   {
-	  HAL_GPIO_TogglePin(GPIOD, GPIO_Pin_13);
+	  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
   }
   if(GPIO_Pin == GPIO_PIN_4)
   {
-	  HAL_GPIO_TogglePin(GPIOD, GPIO_Pin_14);
+	  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14);
   }
   if(GPIO_Pin == GPIO_PIN_10)
   {
-	  HAL_GPIO_TogglePin(GPIOB, GPIO_Pin_0);
+	  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
   }
 
 }

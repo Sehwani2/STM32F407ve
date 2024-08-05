@@ -16,3 +16,4 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:3.CLCD/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:4.TIM_IT/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:4.TIM_IT/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:5.EXIT\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:6.PWM\ Debug/activeLaunchMode=run

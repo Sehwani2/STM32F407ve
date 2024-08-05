@@ -94,6 +94,9 @@ int main(void)
   MX_TIM7_Init();
   MX_TIM3_Init();
   MX_TIM4_Init();
+  MX_TIM10_Init();
+  MX_TIM2_Init();
+  MX_TIM5_Init();
 
   /* Initialize interrupts */
   MX_NVIC_Init();
@@ -122,23 +125,33 @@ int main(void)
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
+
+  HAL_TIM_PWM_Start(&htim10, TIM_CHANNEL_1);
+//  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+
+
+//  HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_1);
+//  HAL_TIM_PWM_Start(&htim5, TIM_CHANNEL_4);
+
+  TIM10->CCR1 = 1500;
+  TIM2->ARR = 500 -1;
+  TIM2 ->CCR1 = 250;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   uint8_t a = 0;
   uint8_t str[20];
-  uint16_t ccr = 0;
+  uint16_t ccr = 100;
   while (1)
   {
-	  //__HAL_TIM_SET_COMPARE(&htim4,TIM_CHANNEL_1,ccr); 아래 코드랑 같음
-	  TIM4->CCR1 = ccr;
-	  ccr += 1000;
-	  if(ccr > TIM4->ARR)
-	  {
-		  ccr = 0;
-	  }
-	  HAL_Delay(50);
+	  //__HAL_TIM_SET_COMPARE(&htim4,TIM_CHANNEL_1,ccr);
+//	  TIM4->CCR1 = ccr;
+//	  ccr += 1000;
+//	  if(ccr > TIM4->ARR)
+//	  {
+//		  ccr = 0;
+//	  }
 
     /* USER CODE END WHILE */
 
