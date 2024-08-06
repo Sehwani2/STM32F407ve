@@ -51,11 +51,7 @@
 void SystemClock_Config(void);
 static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
-int _write(int file, char*p , int len)
-{
- HAL_UART_Transmit(&huart3, p , len , 10);
- return len;
-}
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -104,7 +100,7 @@ int main(void)
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_SET);
   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
 
-  HAL_UART_Receive_IT(&hurt3, &rx3_data, 1);
+  HAL_UART_Receive_IT(&huart3, &rx3_data, 1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
