@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;6.PWM/5.EXIT.ioc&apos; to &apos;6.PWM.ioc&apos;" description="Rename resource &apos;5.EXIT.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="5.EXIT.ioc" name="6.PWM.ioc" stamp="1722818767530" updateReferences="true"/>
+</session>

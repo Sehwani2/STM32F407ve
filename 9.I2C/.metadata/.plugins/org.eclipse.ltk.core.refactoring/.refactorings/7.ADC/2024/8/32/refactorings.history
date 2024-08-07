@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;7.ADC/6.PWM.ioc&apos; to &apos;7.ADC.ioc&apos;" description="Rename resource &apos;6.PWM.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="6.PWM.ioc" name="7.ADC.ioc" stamp="1722908921827" updateReferences="true"/>
+</session>
